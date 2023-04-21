@@ -1,6 +1,8 @@
 package model;
 
-public class TestScore {
+import java.io.Serializable;
+
+public class TestScore implements Serializable {
     private float scoreMath;
     private float scorePhysics;
     private float scoreChemistry;
@@ -34,4 +36,6 @@ public class TestScore {
     public void setScoreChemistry(int scoreChemistry) {
         this.scoreChemistry = scoreChemistry;
     }
+
+
 }

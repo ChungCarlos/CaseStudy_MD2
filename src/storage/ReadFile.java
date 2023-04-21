@@ -6,21 +6,19 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadFile {
-    public static List<Candidates>readFile(){
-        File file = new File("List.txt");
-        List<Candidates>candidates = new ArrayList<>();
+public class ReadFile<Candidates> {
+    public ArrayList<Candidates>readFile(){
+        File file = new File("D:\\Md2\\CaseStudy_MD2\\CaseStudy\\src\\list.txt");
+        ArrayList<Candidates>candidates = new ArrayList<>();
         try {
-            InputStream is = new FileInputStream(file);
-            ObjectInputStream fis = new ObjectInputStream(is);
-            candidates = (List<Candidates>) fis.readObject();
-        } catch (FileNotFoundException e){
-            throw new RuntimeException(e);
-        } catch (IOException e){
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e){
+            FileInputStream fileInputStream = new FileInputStream(file);
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            candidates = (ArrayList<Candidates>) objectInputStream.readObject();
+            fileInputStream.close();
+            objectInputStream.close();
+        } catch (IOException | ClassNotFoundException e){
             throw new RuntimeException(e);
         }
-    return candidates;
+        return candidates;
     }
 }

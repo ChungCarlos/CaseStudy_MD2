@@ -5,8 +5,10 @@ import model.Address;
 import model.Candidates;
 import model.TestScore;
 import storage.ReadFile;
+import storage.WriteFile;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,10 +16,28 @@ import static java.lang.System.in;
 
 public class Run {
 
-    List<Candidates> candidates = ReadFile.readFile();
+//    List<Candidates> candidates = ReadFile.readFile();
 
     public static void main(String[] args) {
         CandidateManage candidateManage = new CandidateManage();
+
+//        Candidates c1 = new Candidates("Ms01","Trần Văn Chung",new Address(" 28 Hoàng Công Chất "," Từ Liêm","HN"), LocalDate.of(1995,05,10),"Nam",new TestScore(9,10,9));
+//        Candidates c2 = new Candidates("Ms02","Nguyễn Minh Công",new Address(" 28 Hoàng Công Chất "," Từ Liêm","HN"),LocalDate.of(1998,04,27),"Nam",new TestScore(5,8,9));
+//        Candidates c3 = new Candidates("Ms03","Phạm Minh Tuấn",new Address(" 88 Hoàng Quốc Việt "," Cầu Giấy","HN"),LocalDate.of(1998,12,17),"Nam",new TestScore(10,10,9));
+//        Candidates c4 = new Candidates("Ms04","Ngô Hoàng Hải",new Address(" 112 Ba Đình "," Ba Đình","HN"), LocalDate.of(2001,05,10),"Nam",new TestScore(9,7,9));
+//        Candidates c5 = new Candidates("Ms05","Đinh Thị Tú Uyên",new Address(" 36 Sầm Sơn "," Thanh Hoá","Thanh Hoá"),LocalDate.of(2000,04,27),"Nam",new TestScore(5,8,5));
+//        Candidates c6 = new Candidates("Ms06","Giàng Thị Dủa",new Address(" 18 Hoa Hùng "," Hưng Yên","Hưng Yên"),LocalDate.of(1996,12,17),"Nam",new TestScore(5,10,7));
+//        var list = candidateManage.getListCandidate();
+//        list.add(c1);
+//        list.add(c2);
+//        list.add(c3);
+//        list.add(c4);
+//        list.add(c5);
+//        list.add(c6);
+//        WriteFile t = new WriteFile();
+//        t.writeFile(list);
+
+
         Scanner scanner = new Scanner(in);
         int choice = -1;
         while (choice != 0) {
@@ -105,10 +125,10 @@ public class Run {
                     candidateManage.searchCandidate(name);
                     break;}
                 case 5: {
-                    System.out.println(" Please enter the name to delete: ");
+                    System.out.println(" Please enter the correct candidate code to delete: ");
                     String name = scanner.nextLine();
-                    Candidates c = new Candidates(name);
-                    System.out.println("Xoá sinh viên trong danh sách: " + candidateManage.delete(c));
+                    candidateManage.delete(name);
+                    break;
                 }
                 case 6:{
                     System.out.println( "Please enter the name");

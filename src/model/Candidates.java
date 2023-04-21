@@ -1,10 +1,11 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
-public class Candidates {
+public class Candidates implements Serializable {
     private String code;
     private String name;
     private Address address;
@@ -16,7 +17,7 @@ public class Candidates {
     public Candidates(String name) {
     }
 
-    public Candidates(String code, String name, Address address, LocalDate dateBirth, String gender, TestScore score) {
+public Candidates(String code, String name, Address address, LocalDate dateBirth, String gender, TestScore score) {
         this.code = code;
         this.name = name;
         this.address = address;
@@ -73,15 +74,20 @@ public class Candidates {
         this.score = score;
     }
 
+
     @Override
     public String toString() {
-        return " Candidates: \n" +
-                " Id: " + getCode() + "\n" +
-                " Name " + getName() + "\n" +
-                " Address " + getAddress() + "\n" + //TODO
-                " Date of birth " + getDateBirth() + "\n" +
-                " Gender " + getGender() + "\n" +
-                " Score " + getScore() //TODO
+        return "Candidates: \n" +
+                " code: " + getCode() + "\n" +
+                " name: " + getName() + "\n" +
+                " address: " + address.getNumberHome() + "\n" +
+                " address: " + address.getDistrict() + "\n" +
+                " address: " + address.getProvince() + "\n" +
+                " dateBirth: " + getDateBirth() + "\n" +
+                " gender: " + getGender() + "\n" +
+                " Math: " + score.getScoreMath()+ "\n" +
+                " Physics: " + score.getScorePhysics()+ "\n" +
+                " Chemistry: " + score.getScoreChemistry()
                 ;
     }
 
@@ -90,7 +96,7 @@ public class Candidates {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Candidates that = (Candidates) o;
-        return gender == that.gender && code.equals(that.code) && name.equals(that.name) && address.equals(that.address) && dateBirth.equals(that.dateBirth) && score.equals(that.score);
+        return code.equals(that.code) && name.equals(that.name) && address.equals(that.address) && dateBirth.equals(that.dateBirth) && gender.equals(that.gender) && score.equals(that.score);
     }
 
     @Override

@@ -1,6 +1,8 @@
 package model;
 
-public class Address {
+import java.io.Serializable;
+
+public class Address implements Serializable {
    private String numberHome;
    private String district;
    private String province;
@@ -34,4 +36,7 @@ public class Address {
     public void setProvince(String province) {
         this.province = province;
     }
+
+
 }
+
