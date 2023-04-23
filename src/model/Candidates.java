@@ -1,5 +1,7 @@
 package model;
 
+import controller.CandidateManage;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
@@ -74,20 +76,28 @@ public Candidates(String code, String name, Address address, LocalDate dateBirth
         this.score = score;
     }
 
+    public float scoreGPA() {
+        return  totalScore()/3;
+    }
+    public float totalScore(){
+        return score.getScoreMath() + score.getScorePhysics()+score.getScoreChemistry()+score.getBonusPoint();
+    }
 
     @Override
     public String toString() {
-        return "Candidates: \n" +
-                " code: " + getCode() + "\n" +
-                " name: " + getName() + "\n" +
-                " address: " + address.getNumberHome() + "\n" +
-                " address: " + address.getDistrict() + "\n" +
-                " address: " + address.getProvince() + "\n" +
-                " dateBirth: " + getDateBirth() + "\n" +
-                " gender: " + getGender() + "\n" +
-                " Math: " + score.getScoreMath()+ "\n" +
-                " Physics: " + score.getScorePhysics()+ "\n" +
-                " Chemistry: " + score.getScoreChemistry()
+        return
+                " |------------Candidates------------| \n" +
+                " | Id: " +getCode() + "\n" +
+                " | Name: " +getName() + "\n" +
+                " | Home number: " +address.getNumberHome() + "\n" +
+                " | District: " +address.getDistrict() + "\n" +
+                " | Province: " +address.getProvince() + "\n" +
+                " | Date of Birth: " +getDateBirth() + "\n" +
+                " | Gender: " +getGender() + "\n" +
+                " | Math: " +score.getScoreMath()+ "\n" +
+                " | Physics: " +score.getScorePhysics()+ "\n" +
+                " | Chemistry: " +score.getScoreChemistry()+"\n" +
+                " | Bonus: " +score.getBonusPoint()+"\n"
                 ;
     }
 
