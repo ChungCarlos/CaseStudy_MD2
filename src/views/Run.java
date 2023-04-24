@@ -22,7 +22,9 @@ public class Run {
 //    List<Candidates> candidates = ReadFile.readFile();
 
     public static void main(String[] args) {
-        CandidateManage candidateManage = new CandidateManage();
+        Menu menu = new Menu();
+        menu.menu();
+//        CandidateManage candidateManage = new CandidateManage();
 //        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 //        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
@@ -37,162 +39,162 @@ public class Run {
 //        t.writeFile(list);
 
 
-        Scanner scanner = new Scanner(in);
-        int choice = -1;
-        while (choice != 0) {
-            System.out.println("""
-                      
-                      |>  --><-- MENU --><--  <|
-                      || 1. Insert a contact  ||
-                      || 2. Display all list  ||
-          Please      || 3. Search by ID      ||
-           Choice =>  || 4. Delete a contact  ||
-                      || 5. Sort by score(GPA)|| 
-                      || 6. Sort by ID        ||
-                      || 7. Display passed    ||
-                      ||      0. Exit...      ||
-                      |>======================<|                                         
-                      """);
-            choice = Integer.parseInt(scanner.nextLine());
-            switch (choice) {
-                case 1: {
-                    int x;
-                    do {
-                        System.out.println("""
-                                |>---------------Please Choice---------------<|
-                                |     Do you want to add new contestants?     |
-                                |    Please select the corresponding number:  |
-                                |          1. Yes / Add candidate ->          |
-                                |               2. No / Back <-               |
-                                |_____________________________________________|               
-                                    """);
-                        x = Integer.parseInt(scanner.nextLine());
-
-                        switch (x) {
-                            case 1: {
-
-                                try {
-                                    System.out.println(" Enter a code candidate: ");
-                                    String code = scanner.nextLine();
-
-                                    System.out.println(" Enter name: ");
-                                    String name = scanner.nextLine();
-
-                                    System.out.println(" ...Address... ");
-                                    System.out.println(" Please enter home number: ");
-                                    String numberHome = scanner.nextLine();
-                                    System.out.println(" Please enter district: ");
-                                    String district = scanner.nextLine();
-                                    System.out.println(" Please enter province: ");
-                                    String province = scanner.nextLine();
-                                    Address address = new Address(numberHome, district, province);
-
-                                    System.out.println(" Enter date of birth (dd-MM-yyyy): ");
-                                    String inputDate = scanner.nextLine();
-
-                                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                                    LocalDate date = LocalDate.parse(inputDate, formatter);
-                                    String formattedDate = date.format(formatter);
-
-                                    System.out.println("Date of birth entered: " + formattedDate);
-
-
-                                    System.out.println(" Enter gender: ");
-                                    String gender = scanner.nextLine();
-
-
-                                    System.out.println(" Enter score Math: ");
-                                    int scoreMath = Integer.parseInt(scanner.nextLine());
-                                    System.out.println(" Enter score Physics: ");
-                                    int scorePhysics = Integer.parseInt(scanner.nextLine());
-                                    System.out.println(" Enter score Chemistry: ");
-                                    int scoreChemistry = Integer.parseInt(scanner.nextLine());
-                                    System.out.println(" Enter bonus point: ");
-                                    int bonusPoint = Integer.parseInt(scanner.nextLine());
-
-                                    TestScore testScore = new TestScore(scoreMath, scorePhysics, scoreChemistry,bonusPoint);
-
-                                    Candidates c = new Candidates(code, name, address, date, gender, testScore);
-                                    candidateManage.insert(c);
-                                } catch (DateTimeParseException e) {
-                                    System.out.println("...Invalid date format. Please enter in the format dd-MM-yyyy...");
-                                } catch (NumberFormatException e) {
-                                    System.out.println("...Please enter the correct number format...");
-                                }
-                                break;
-                            }
-                            case 2: {
-                                System.out.println("Returning program...");
-                                break;
-                            }
-                            default:
-                                System.out.println("Invalid choice. Please try again.");
-                        }
-                    } while (x != 2);
-                }
-                break;
-                case 2: {
-                    candidateManage.displayList();
-                    break;
-                }
-
-                case 3: {
-                    System.out.println(" Please enter the correct name to search:");
-                    String name = scanner.nextLine();
-                    candidateManage.searchCandidate(name);
-                    break;
-                }
-                case 4: {
-                    System.out.println(" Please enter the correct candidate code to delete: ");
-                    String name = scanner.nextLine();
-                    candidateManage.delete(name);
-                    System.out.println(" Delete successfully!");
-                    break;
-                }
-                case 5: {
-                    int sort;
-                    do {
-                        System.out.println("""                       
-                                |>--------------<|
-                    Please      | 1. Descending. |
-                     Choice =>  | 2. Ascending.  |
-                                | 0. <- Back     |
-                                |________________|
-                                """);
-                        sort = Integer.parseInt(scanner.nextLine());
-                        switch (sort) {
-                            case 1: {
-                                System.out.println(" Descending score list is: ");
-                                candidateManage.sortScoreDecrease();
-                                break;
-                            }
-                            case 2: {
-                                System.out.println(" Ascending score list is: ");
-                                candidateManage.sortScoreAscending();
-                                break;
-                            }
-                            case 0:{
-                                System.out.println("Returning program...");
-                                break;
-                            }
-                            default:
-                                System.out.println("Invalid choice. Please try again.");
-                        }
-                    }while (sort != 0);
-                }
-                break;
-                case 6: {
-                    candidateManage.sortID();
-                    break;
-                }
-                case 7:
-                    candidateManage.pass();
-                    break;
-                case 0:
-                    scanner.close();
-                default:
-                    System.out.println(" Please choose the correct function number sequence above!");
-            }
-        }
+//        Scanner scanner = new Scanner(in);
+//        int choice = -1;
+//        while (choice != 0) {
+//            System.out.println("""
+//
+//                      |>  --><-- MENU --><--  <|
+//                      || 1. Insert a contact  ||
+//                      || 2. Display all list  ||
+//          Please      || 3. Search by ID      ||
+//           Choice =>  || 4. Delete a contact  ||
+//                      || 5. Sort by score(GPA)||
+//                      || 6. Sort by ID        ||
+//                      || 7. Display passed    ||
+//                      ||      0. Exit...      ||
+//                      |>======================<|
+//                      """);
+//            choice = Integer.parseInt(scanner.nextLine());
+//            switch (choice) {
+//                case 1: {
+//                    int x;
+//                    do {
+//                        System.out.println("""
+//                                |>---------------Please Choice---------------<|
+//                                |     Do you want to add new contestants?     |
+//                                |    Please select the corresponding number:  |
+//                                |          1. Yes / Add candidate ->          |
+//                                |               2. No / Back <-               |
+//                                |_____________________________________________|
+//                                    """);
+//                        x = Integer.parseInt(scanner.nextLine());
+//
+//                        switch (x) {
+//                            case 1: {
+//
+//                                try {
+//                                    System.out.println(" Enter a code candidate: ");
+//                                    String code = scanner.nextLine();
+//
+//                                    System.out.println(" Enter name: ");
+//                                    String name = scanner.nextLine();
+//
+//                                    System.out.println(" ...Address... ");
+//                                    System.out.println(" Please enter home number: ");
+//                                    String numberHome = scanner.nextLine();
+//                                    System.out.println(" Please enter district: ");
+//                                    String district = scanner.nextLine();
+//                                    System.out.println(" Please enter province: ");
+//                                    String province = scanner.nextLine();
+//                                    Address address = new Address(numberHome, district, province);
+//
+//                                    System.out.println(" Enter date of birth (dd-MM-yyyy): ");
+//                                    String inputDate = scanner.nextLine();
+//
+//                                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+//                                    LocalDate date = LocalDate.parse(inputDate, formatter);
+//                                    String formattedDate = date.format(formatter);
+//
+//                                    System.out.println("Date of birth entered: " + formattedDate);
+//
+//
+//                                    System.out.println(" Enter gender: ");
+//                                    String gender = scanner.nextLine();
+//
+//
+//                                    System.out.println(" Enter score Math: ");
+//                                    int scoreMath = Integer.parseInt(scanner.nextLine());
+//                                    System.out.println(" Enter score Physics: ");
+//                                    int scorePhysics = Integer.parseInt(scanner.nextLine());
+//                                    System.out.println(" Enter score Chemistry: ");
+//                                    int scoreChemistry = Integer.parseInt(scanner.nextLine());
+//                                    System.out.println(" Enter bonus point: ");
+//                                    int bonusPoint = Integer.parseInt(scanner.nextLine());
+//
+//                                    TestScore testScore = new TestScore(scoreMath, scorePhysics, scoreChemistry,bonusPoint);
+//
+//                                    Candidates c = new Candidates(code, name, address, date, gender, testScore);
+//                                    candidateManage.insert(c);
+//                                } catch (DateTimeParseException e) {
+//                                    System.out.println("...Invalid date format. Please enter in the format dd-MM-yyyy...");
+//                                } catch (NumberFormatException e) {
+//                                    System.out.println("...Please enter the correct number format...");
+//                                }
+//                                break;
+//                            }
+//                            case 2: {
+//                                System.out.println("Returning program...");
+//                                break;
+//                            }
+//                            default:
+//                                System.out.println("Invalid choice. Please try again.");
+//                        }
+//                    } while (x != 2);
+//                }
+//                break;
+//                case 2: {
+//                    candidateManage.displayList();
+//                    break;
+//                }
+//
+//                case 3: {
+//                    System.out.println(" Please enter the correct name to search:");
+//                    String name = scanner.nextLine();
+//                    candidateManage.searchCandidate(name);
+//                    break;
+//                }
+//                case 4: {
+//                    System.out.println(" Please enter the correct candidate code to delete: ");
+//                    String name = scanner.nextLine();
+//                    candidateManage.delete(name);
+//                    System.out.println(" Delete successfully!");
+//                    break;
+//                }
+//                case 5: {
+//                    int sort;
+//                    do {
+//                        System.out.println("""
+//                                |>--------------<|
+//                    Please      | 1. Descending. |
+//                     Choice =>  | 2. Ascending.  |
+//                                | 0. <- Back     |
+//                                |________________|
+//                                """);
+//                        sort = Integer.parseInt(scanner.nextLine());
+//                        switch (sort) {
+//                            case 1: {
+//                                System.out.println(" Descending score list is: ");
+//                                candidateManage.sortScoreDecrease();
+//                                break;
+//                            }
+//                            case 2: {
+//                                System.out.println(" Ascending score list is: ");
+//                                candidateManage.sortScoreAscending();
+//                                break;
+//                            }
+//                            case 0:{
+//                                System.out.println("Returning program...");
+//                                break;
+//                            }
+//                            default:
+//                                System.out.println("Invalid choice. Please try again.");
+//                        }
+//                    }while (sort != 0);
+//                }
+//                break;
+//                case 6: {
+//                    candidateManage.sortID();
+//                    break;
+//                }
+//                case 7:
+//                    candidateManage.pass();
+//                    break;
+//                case 0:
+//                    scanner.close();
+//                default:
+//                    System.out.println(" Please choose the correct function number sequence above!");
+//            }
+//        }
     }
 }
