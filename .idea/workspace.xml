@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a7642e7-3d7d-4e4a-a627-5e7e49983163" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/views/Regex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/list.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Candidates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Candidates.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Run.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/login/Login.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,25 +37,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;false&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Md2/Login.java&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "false",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Md2/CaseStudyMD2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editing.templates",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RunManager" selected="Application.Run">
     <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="views.login.Login" />
       <module name="CaseStudy" />
@@ -111,10 +110,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Run" />
         <item itemvalue="Application.Login" />
         <item itemvalue="Application.Login1" />
         <item itemvalue="Application.main" />
-        <item itemvalue="Application.Run" />
       </list>
     </recent_temporary>
   </component>
@@ -143,7 +142,8 @@
       <workItem from="1682317407306" duration="3413000" />
       <workItem from="1682320872944" duration="4000" />
       <workItem from="1682340322199" duration="77000" />
-      <workItem from="1682397598775" duration="5041000" />
+      <workItem from="1682397598775" duration="7444000" />
+      <workItem from="1682410623205" duration="240000" />
     </task>
     <servers />
   </component>

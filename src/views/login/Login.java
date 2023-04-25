@@ -104,6 +104,8 @@ class Main {
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false); // khoá kích thướng cửa sổ ko cho người dùng thay đổi
+        // Đóng form hiện tại khi đăng nhập thành công
+
     }
 
 }
