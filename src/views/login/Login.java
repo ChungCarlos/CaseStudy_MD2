@@ -73,9 +73,11 @@ public class Login extends JFrame implements ActionListener {
             String pwdText;
             userText = userTextField.getText();
             pwdText = passwordField.getText();
-            if (userText.equalsIgnoreCase("admin") && pwdText.equalsIgnoreCase("admin")) {
+            if (userText.equals("Admin") && pwdText.equals("Admin")) {
                 JOptionPane.showMessageDialog(this, "Login Successful");
+                this.setVisible(false); // Đóng cửa sỏ form login nhưng vẫn chạy
                 menu.menu();
+
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Username or Password");
             }
@@ -90,8 +92,6 @@ public class Login extends JFrame implements ActionListener {
             } else {
                 passwordField.setEchoChar('*');
             }
-
-
         }
     }
 }
