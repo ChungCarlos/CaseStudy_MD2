@@ -32,9 +32,9 @@ public class Menu {
 //        WriteFile t = new WriteFile();
 //        t.writeFile(list);
 
-//        Scanner scanner = new Scanner(System.in);
-//        int choice = -1 ;
-        while (true) {
+        Scanner scanner = new Scanner(in);
+        int choice = -1;
+        while (choice != 0) {
             System.out.println("""
                       
                       |>  --><-- MENU --><--  <|
@@ -48,10 +48,14 @@ public class Menu {
                       ||      0. Exit -->     ||
                       |>======================<|                                         
                       """);
-            String choice = new Scanner(System.in).nextLine();
+            try {
+                choice = Integer.parseInt(scanner.nextLine().trim());
+            } catch (NumberFormatException e){
+                System.out.println("Please enter the correct format as numbers...");
+            }
             switch (choice) {
-                case "1": {
-                    String x;
+                case 1: {
+                    int x;
                     do {
                         System.out.println("""
                                 |>---------------Please Choice---------------<|
@@ -61,37 +65,37 @@ public class Menu {
                                 |               2. No / Back <-               |
                                 |_____________________________________________|               
                                     """);
-                        x = new Scanner(System.in).nextLine().trim();
+                        x = Integer.parseInt(scanner.nextLine().trim());
 
                         switch (x) {
-                            case "1": {
+                            case 1: {
 
                                 try {
                                     System.out.println(" Enter a code candidate: ");
-                                    String code = new Scanner(System.in).nextLine().trim();
+                                    String code = scanner.nextLine().trim();
                                     while (!regex.validateId(code)){
                                         System.out.println("Re-enter in the following format: MS01 ");
-                                        code = new Scanner(System.in).nextLine().trim();
+                                        code = scanner.nextLine().trim();
                                     }
 
                                     System.out.println(" Enter name: ");
-                                    String name = new Scanner(System.in).nextLine().trim();
+                                    String name = scanner.nextLine().trim();
                                     while (!regex.validateName(name)){
                                         System.out.println("Re-enter in the following format: Tran Van Chung ");
-                                        name = new Scanner(System.in).nextLine().trim();
+                                        name = scanner.nextLine().trim();
                                     }
 
                                     System.out.println(" ...Address... ");
                                     System.out.println(" Please enter home number: ");
-                                    String numberHome = new Scanner(System.in).nextLine().trim();
+                                    String numberHome = scanner.nextLine().trim();
                                     System.out.println(" Please enter district: ");
-                                    String district = new Scanner(System.in).nextLine().trim();
+                                    String district = scanner.nextLine().trim();
                                     System.out.println(" Please enter province: ");
-                                    String province = new Scanner(System.in).nextLine().trim();
+                                    String province = scanner.nextLine().trim();
                                     Address address = new Address(numberHome, district, province);
 
                                     System.out.println(" Enter date of birth (dd-MM-yyyy): ");
-                                    String inputDate = new Scanner(System.in).nextLine().trim();
+                                    String inputDate = scanner.nextLine().trim();
 
                                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                                     LocalDate date = LocalDate.parse(inputDate, formatter);
@@ -101,17 +105,17 @@ public class Menu {
 
 
                                     System.out.println(" Enter gender: ");
-                                    String gender = new Scanner(System.in).nextLine().trim();
+                                    String gender = scanner.nextLine().trim();
 
 
                                     System.out.println(" Enter score Math: ");
-                                    int scoreMath = new Scanner(System.in).nextInt();
+                                    int scoreMath = Integer.parseInt(scanner.nextLine().trim());
                                     System.out.println(" Enter score Physics: ");
-                                    int scorePhysics = new Scanner(System.in).nextInt();
+                                    int scorePhysics = Integer.parseInt(scanner.nextLine().trim());
                                     System.out.println(" Enter score Chemistry: ");
-                                    int scoreChemistry = new Scanner(System.in).nextInt();
+                                    int scoreChemistry = Integer.parseInt(scanner.nextLine().trim());
                                     System.out.println(" Enter bonus point: ");
-                                    int bonusPoint = new Scanner(System.in).nextInt();
+                                    int bonusPoint = Integer.parseInt(scanner.nextLine().trim());
 
                                     TestScore testScore = new TestScore(scoreMath, scorePhysics, scoreChemistry,bonusPoint);
 
@@ -120,39 +124,39 @@ public class Menu {
                                 } catch (DateTimeParseException e) {
                                     System.out.println("...Invalid date format. Please enter in the format dd-MM-yyyy...");
                                 } catch (NumberFormatException e) {
-                                    System.out.println("...Please enter the correct number format...");
+                                    System.out.println("...Please enter the correct format as numbers...");
                                 }
                                 break;
                             }
-                            case "2": {
+                            case 2: {
                                 System.out.println("Returning program...");
                                 break;
                             }
                             default:
                                 System.out.println("Invalid choice. Please try again.");
                         }
-                    } while (x != "2");
+                    } while (x != 2);
                 }
                 break;
-                case "2": {
+                case 2: {
                     candidateManage.displayList();
                     break;
                 }
 
-                case "3": {
+                case 3: {
                     System.out.println(" Please enter the correct name to search:");
-                    String name = new Scanner(System.in).nextLine().trim();
+                    String name = scanner.nextLine().trim();
                     candidateManage.searchCandidate(name);
                     break;
                 }
-                case "4": {
+                case 4: {
                     System.out.println(" Please enter the correct candidate code to delete: ");
-                    String name = new Scanner(System.in).nextLine().trim();
+                    String name = scanner.nextLine().trim();
                     candidateManage.delete(name);
                     System.out.println(" Delete successfully!");
                     break;
                 }
-                case "5": {
+                case 5: {
                     int sort;
                     do {
                         System.out.println("""                       
@@ -162,7 +166,7 @@ public class Menu {
                                 | 0. <- Back     |
                                 |________________|
                                 """);
-                        sort = new Scanner(System.in).nextInt();
+                        sort = Integer.parseInt(scanner.nextLine().trim());
                         switch (sort) {
                             case 1: {
                                 System.out.println(" Descending score list is: ");
@@ -184,15 +188,15 @@ public class Menu {
                     }while (sort != 0);
                 }
                 break;
-                case "6": {
+                case 6: {
                     candidateManage.sortID();
                     break;
                 }
-                case "7":
+                case 7:
                     candidateManage.pass();
                     break;
-                case "0":
-                    System.exit(0);
+                case 0:
+                    scanner.close();
                 default:
                     System.out.println(" Please choose the correct function number sequence above!");
             }
