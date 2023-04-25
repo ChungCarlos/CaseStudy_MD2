@@ -97,7 +97,8 @@ public Candidates(String code, String name, Address address, LocalDate dateBirth
                 " | Math: " +score.getScoreMath()+ "\n" +
                 " | Physics: " +score.getScorePhysics()+ "\n" +
                 " | Chemistry: " +score.getScoreChemistry()+"\n" +
-                " | Bonus: " +score.getBonusPoint()+"\n"
+                " | Bonus: " +score.getBonusPoint()+"\n" +
+                " <|_________________________________|>"
                 ;
     }
 
