@@ -138,8 +138,10 @@ public class CandidateManage {
 
     public void update(String name) {
         Scanner scanner = new Scanner(System.in);
+        boolean check = false;
         for (Candidates candidates : listCandidate) {
             if (candidates.getName().toLowerCase().indexOf(name.toLowerCase()) >= 0) {
+                check = true;
                 System.out.println("Candidate search list: \n" + candidates);
                 System.out.println(" What do you want to edit? ");
                 System.out.println("1. ID");
@@ -203,9 +205,11 @@ public class CandidateManage {
                 }
                 break;
             } else {
-                System.out.println(" No information in the list...");
-                break;
+                check = false;
             }
+        }
+        if(!check){
+            System.out.println(" No information in the list...");
         }
     }
 
