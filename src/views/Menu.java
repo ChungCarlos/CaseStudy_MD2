@@ -15,7 +15,7 @@ import static java.lang.System.in;
 
 public class Menu {
 
-    public void menu(){
+    public void menu() {
         CandidateManage candidateManage = new CandidateManage();
         Regex regex = new Regex();
 
@@ -36,21 +36,22 @@ public class Menu {
         int choice = -1;
         while (choice != 0) {
             System.out.println("""
-                      
-                      |>  --><-- MENU --><--  <|
-                      || 1. Insert a contact  ||
-                      || 2. Display all list  ||
-          Please      || 3. Search by name    ||
-           Choice =>  || 4. Delete a contact  ||
-                      || 5. Sort by score(GPA)|| 
-                      || 6. Sort by ID        ||
-                      || 7. Display passed    ||
-                      ||      0. Exit -->     ||
-                      |>======================<|                                         
-                      """);
+                                
+                                |>  --><-- MENU --><--  <|
+                                || 1. Insert a contact  ||
+                                || 2. Display all list  ||
+                    Please      || 3. Search by name    ||
+                     Choice =>  || 4. Delete a contact  ||
+                                || 5. Sort by score(GPA)|| 
+                                || 6. Sort by ID        ||
+                                || 7. Display passed    ||
+                                || 8. Edit candidate    ||
+                                ||      0. Exit -->     ||
+                                |>======================<|                                         
+                                """);
             try {
                 choice = Integer.parseInt(scanner.nextLine().trim());
-            } catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Please enter the correct format as numbers...");
             }
             switch (choice) {
@@ -73,14 +74,14 @@ public class Menu {
                                 try {
                                     System.out.println(" Enter a code candidate: ");
                                     String code = scanner.nextLine().trim();
-                                    while (!regex.validateId(code)){
+                                    while (!regex.validateId(code)) {
                                         System.out.println("Re-enter in the following format: MS01 ");
                                         code = scanner.nextLine().trim();
                                     }
 
                                     System.out.println(" Enter name: ");
                                     String name = scanner.nextLine().trim();
-                                    while (!regex.validateName(name)){
+                                    while (!regex.validateName(name)) {
                                         System.out.println("Re-enter in the following format: Tran Van Chung ");
                                         name = scanner.nextLine().trim();
                                     }
@@ -117,7 +118,7 @@ public class Menu {
                                     System.out.println(" Enter bonus point: ");
                                     int bonusPoint = Integer.parseInt(scanner.nextLine().trim());
 
-                                    TestScore testScore = new TestScore(scoreMath, scorePhysics, scoreChemistry,bonusPoint);
+                                    TestScore testScore = new TestScore(scoreMath, scorePhysics, scoreChemistry, bonusPoint);
 
                                     Candidates c = new Candidates(code, name, address, date, gender, testScore);
                                     candidateManage.insert(c);
@@ -159,12 +160,12 @@ public class Menu {
                     int sort;
                     do {
                         System.out.println("""                       
-                                |>--------------<|
-                    Please      | 1. Descending. |
-                     Choice =>  | 2. Ascending.  |
-                                | 0. <- Back     |
-                                |________________|
-                                """);
+                                            |>--------------<|
+                                Please      | 1. Descending. |
+                                 Choice =>  | 2. Ascending.  |
+                                            | 0. <- Back     |
+                                            |________________|
+                                            """);
                         sort = Integer.parseInt(scanner.nextLine().trim());
                         switch (sort) {
                             case 1: {
@@ -177,14 +178,14 @@ public class Menu {
                                 candidateManage.sortScoreAscending();
                                 break;
                             }
-                            case 0:{
+                            case 0: {
                                 System.out.println("Returning program...");
                                 break;
                             }
                             default:
                                 System.out.println("Invalid choice. Please try again.");
                         }
-                    }while (sort != 0);
+                    } while (sort != 0);
                 }
                 break;
                 case 6: {
@@ -194,6 +195,11 @@ public class Menu {
                 case 7:
                     candidateManage.pass();
                     break;
+                case 8:
+                    System.out.println(" Enter the name of the student you want to edit: ");
+                    String name = scanner.nextLine().trim();
+                    candidateManage.update(name);
+                    break;
                 case 0:
                     scanner.close();
                 default:
@@ -202,3 +208,4 @@ public class Menu {
         }
     }
 }
+

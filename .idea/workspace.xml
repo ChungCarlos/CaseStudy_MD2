@@ -7,7 +7,6 @@
     <list default="true" id="2a7642e7-3d7d-4e4a-a627-5e7e49983163" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/CandidateManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CandidateManage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Candidates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Candidates.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/login/Login.java" afterDir="false" />
     </list>
@@ -146,7 +145,7 @@
       <workItem from="1682410623205" duration="240000" />
       <workItem from="1682411245750" duration="5947000" />
       <workItem from="1682435330067" duration="2275000" />
-      <workItem from="1682472800334" duration="3552000" />
+      <workItem from="1682472800334" duration="14154000" />
     </task>
     <servers />
   </component>

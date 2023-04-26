@@ -99,5 +99,4 @@ class Main {
         frame.setResizable(false); // khoá kích thướng cửa sổ ko cho người dùng thay đổi
         // Đóng form hiện tại khi đăng nhập thành công
     }
-
 }
