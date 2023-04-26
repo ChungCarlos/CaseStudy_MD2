@@ -143,13 +143,19 @@ public class CandidateManage {
             if (candidates.getName().toLowerCase().indexOf(name.toLowerCase()) >= 0) {
                 check = true;
                 System.out.println("Candidate search list: \n" + candidates);
-                System.out.println(" What do you want to edit? ");
-                System.out.println("1. ID");
-                System.out.println("2. Name");
-                System.out.println("3. Address");
-                System.out.println("4. Date of birth");
-                System.out.println("5. Gender");
-                System.out.println("6. Score");
+                System.out.println("""
+                         |>-----------------------<|
+                         |    What do you          |
+                         |         want to edit?   |
+                         |>-----------------------<|
+                         |  1. ID                  |
+                         |  2. Name                |
+                         |  3. Address             |
+                         |  4. Date of birth       |
+                         |  5. Gender              |
+                         |  6. Score               |
+                         |>-----------------------<|
+                        """);
                 int choice = Integer.parseInt(scanner.nextLine().trim());
                 switch (choice) {
                     case 1:
