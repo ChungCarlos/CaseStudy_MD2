@@ -1,11 +1,6 @@
 package views.login;
 
-import controller.CandidateManage;
 import views.Menu;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,8 +40,6 @@ public class Login extends JFrame implements ActionListener {
         showPassword.setBounds(150, 150, 150, 30);
         loginButton.setBounds(50, 200, 100, 30);
         resetButton.setBounds(200, 200, 100, 30);
-
-
     }
 
     public void addComponentsToContainer() {
@@ -88,9 +81,9 @@ public class Login extends JFrame implements ActionListener {
         }
         if (e.getSource() == showPassword) {
             if (showPassword.isSelected()) {
-                passwordField.setEchoChar((char) 0);
+                passwordField.setEchoChar((char) 0); // nếu được chọn sẽ hiển thị pass
             } else {
-                passwordField.setEchoChar('*');
+                passwordField.setEchoChar('*'); // nếu ko được chọn sẽ thay thế thành ký tự *
             }
         }
     }
@@ -105,7 +98,6 @@ class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false); // khoá kích thướng cửa sổ ko cho người dùng thay đổi
         // Đóng form hiện tại khi đăng nhập thành công
-
     }
 
 }

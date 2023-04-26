@@ -40,7 +40,7 @@ public class Menu {
                       |>  --><-- MENU --><--  <|
                       || 1. Insert a contact  ||
                       || 2. Display all list  ||
-          Please      || 3. Search by ID      ||
+          Please      || 3. Search by name    ||
            Choice =>  || 4. Delete a contact  ||
                       || 5. Sort by score(GPA)|| 
                       || 6. Sort by ID        ||
@@ -153,7 +153,6 @@ public class Menu {
                     System.out.println(" Please enter the correct candidate code to delete: ");
                     String name = scanner.nextLine().trim();
                     candidateManage.delete(name);
-                    System.out.println(" Delete successfully!");
                     break;
                 }
                 case 5: {

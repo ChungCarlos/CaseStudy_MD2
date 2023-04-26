@@ -65,8 +65,12 @@ public class CandidateManage {
 
     // 4. Phương thức xoá Thí sinh...theo mã thí sinh
     public void delete(String candidates) {
-        listCandidate.removeIf(c -> c.getCode().equals(candidates));
-        write.writeFile(listCandidate);
+        if(listCandidate.removeIf(c -> c.getCode().equals(candidates))){
+            System.out.println(" Delete successfully!");
+            write.writeFile(listCandidate);
+        } else {
+            System.out.println(" Candidates not on the list. Can't delete!!!");
+        }
     }
 
 
@@ -86,7 +90,7 @@ public class CandidateManage {
                 }
             }
         });
-        System.out.println(listCandidate);
+        displayList();
     }
 
     public void sortScoreDecrease() {
@@ -103,7 +107,7 @@ public class CandidateManage {
                 }
             }
         });
-        System.out.println(listCandidate);
+        displayList();
     }
 
     // 6. Phương thức sort...theo ID...
