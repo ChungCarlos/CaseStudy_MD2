@@ -217,7 +217,7 @@ public class CandidateManage {
         if(!check){
             System.out.println(" No information in the list...");
         }
+        write.writeFile(listCandidate);
     }
-
 }
 
